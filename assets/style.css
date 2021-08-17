@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,500&family=Nunito:wght@400;600&display=swap');
+@import url(/assets/Facultad-Regular.otf);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+}
+
+#home,
+#about,
+#mission {
+    height: 100vh;
+}
+
+a {
+    color: #19302E;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+
+/* NavBar */
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px;
+    color: #ffffff;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0.8, 30%);
+}
+
+.nav-item ul {
+    display: flex;
+}
+
+.nav-item ul li {
+    padding: 0 20px;
+    list-style: none;
+}
+
+.nav-brand {
+    color: #000000;
+}
+
+.toggle {
+    display: none;
+}
+
+
+/*todo Home CSS*/
+
+.home_page {
+    height: 100%;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(./images/bg.png);
+}
+
+.home_content {
+    position: absolute;
+    top: 35%;
+    left: 0;
+}
+
+.home_content h1 {
+    color: #19302E;
+    font-family: Facultad;
+    font-size: 54px;
+    margin-left: 30px;
+    line-height: 70px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.home_content p {
+    width: 500px;
+    font-size: 20px;
+    margin-left: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 35px;
+    color: #19302E;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.home-btn a {
+    padding: 10px 20px;
+    background-color: #19302E;
+    color: #6EB981;
+    margin-left: 22px;
+    border-radius: 50px;
+}
+
+
+/*todo About CSS*/
+
+.about-bg {
+    padding: 50px;
+    background-color: #F1ECE4;
+}
+
+.about-content {
+    margin-top: 5%;
+}
+
+.rows {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about-content h1 {
+    color: #19302E;
+    font-family: Facultad;
+    font-weight: 600;
+}
+
+.about-content p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    color: #19302E;
+    line-height: 140%;
+}
+
+
+/*todo Our Mission*/
+
+.mission-bg {
+    padding: 50px;
+}
+
+.mission-image h3 {
+    font-size: 20px;
+    line-height: 117%;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 20px 0;
+    color: #6EB981;
+}
+
+.mission-content h1 {
+    font-family: Facultad;
+    font-size: 30px;
+    margin: 20px 0;
+    font-weight: 600;
+}
+
+.mission-content {
+    width: 600px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    color: #19302E;
+    line-height: 140%;
+}
+
+.mission-content li {
+    margin: 10px 0;
+}
+
+
+/*todo Service Started*/
+
+.service_page {
+    height: 100vh;
+    background-color: #19302E;
+}
+
+.service-content {
+    padding: 50px;
+}
+
+.service-content h3 {
+    font-size: 20px;
+    line-height: 117%;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 20px 0;
+    color: #6EB981;
+}
+
+.service-content h1 {
+    font-family: Facultad;
+    font-size: 40px;
+    line-height: 117%;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+
+/*todo Mobile Responsive   */
+
+@media only screen and (max-width: 749px) {
+    #header ul {
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: calc(100vh- 80px);
+        padding: 50px 100px;
+        text-align: center;
+        overflow: auto;
+        background-color: #111;
+        flex-direction: column;
+        opacity: 0;
+    }
+    .nav-brand {
+        color: #fff;
+    }
+    #header {
+        background-color: #111;
+    }
+    #header.active1 ul {
+        opacity: 1;
+        top: 80px;
+    }
+    #header ul li a {
+        margin: 5px 0;
+        font-size: 24px;
+        color: #fff;
+    }
+    .toggle {
+        display: block;
+        position: relative;
+        width: 25px;
+        height: 25px;
+        background-image: url(../images/icons8-menu-48.png);
+        cursor: pointer;
+    }
+    #header.active1 .toggle {
+        background-image: url(../images/icons8-delete-24.png);
+        background-repeat: no-repeat;
+    }
+    .rows {
+        display: block;
+    }
+}

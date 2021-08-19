@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    user-select: none;
 }
 
 body {
@@ -13,8 +14,9 @@ body {
 
 #home,
 #about,
-#mission {
-    height: 100vh;
+#mission,
+#contact {
+    height: 90vh;
 }
 
 a {
@@ -72,7 +74,7 @@ a {
 .home_content h1 {
     color: #19302E;
     font-family: Facultad;
-    font-size: 54px;
+    font-size: 48px;
     margin-left: 30px;
     line-height: 70px;
     text-align: left;
@@ -82,13 +84,12 @@ a {
 .home_content p {
     width: 500px;
     font-size: 20px;
-    margin-left: 30px;
     font-style: normal;
     font-weight: 400;
-    line-height: 35px;
+    margin: 10px 30px 10px;
+    line-height: 30px;
     color: #19302E;
     margin-bottom: 20px;
-    text-align: left;
 }
 
 .home-btn a {
@@ -104,7 +105,6 @@ a {
 
 .about-bg {
     padding: 50px;
-    background-color: #F1ECE4;
 }
 
 .about-content {
@@ -224,6 +224,104 @@ a {
     font-weight: 400;
     line-height: 22px;
     letter-spacing: 1px;
+    color: #ffffff;
+}
+
+.service-content a {
+    width: 250px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    margin-left: 10px;
+    border: 1px solid #6EB981;
+}
+
+
+/*todo Contact Started*/
+
+.title {
+    text-align: center;
+    margin-top: 70px;
+    font-size: 22px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.contact_form form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact_form form input {
+    outline: 0;
+    background: #f2f2f2;
+    width: 600px;
+    border-radius: 4px;
+    border: 0;
+    margin: 15px 0;
+    padding: 15px;
+    font-size: 14px;
+}
+
+.contact_form form textarea {
+    background-color: #f2f2f2;
+    border: none;
+    padding: 20px 10px;
+}
+
+.contact_form input[type="button"] {
+    width: 200px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+
+/*todo Footer Started */
+
+.main-footer {
+    padding: 50px 0;
+    height: 250px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #19302E;
+}
+
+.main-footer ul {
+    list-style: none;
+}
+
+.main-footer h1 {
+    font-size: 22px;
+    line-height: 117%;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.main-footer h2 {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.main-footer ul li {
+    color: #ffffffcc;
+}
+
+footer {
+    background-color: #19302E;
+    border-top: 1px solid #6EB981;
+    font-size: 17px;
+    padding: 10px 5px;
+    color: #ffffff;
+    text-align: center;
+}
+
+footer a {
+    text-decoration: none;
     color: #ffffff;
 }
 

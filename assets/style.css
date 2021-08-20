@@ -201,7 +201,7 @@ a {
 /*todo Service Started*/
 
 .service_page {
-    height: 100vh;
+    height: 40vh;
     background-color: #19302E;
 }
 
@@ -448,19 +448,19 @@ footer a {
         top: -100%;
         left: 0;
         width: 100%;
-        height: calc(100vh- 80px);
+        height: calc(120vh- 80px);
         padding: 50px 100px;
         text-align: center;
         overflow: auto;
-        background-color: #111;
+        background-color: #fff;
         flex-direction: column;
-        opacity: 0;
+        z-index: 10;
     }
     .nav-brand {
-        color: #fff;
+        color: #000;
     }
     #header {
-        background-color: #111;
+        background-color: #fff;
     }
     #header.active1 ul {
         opacity: 1;
@@ -469,7 +469,7 @@ footer a {
     #header ul li a {
         margin: 5px 0;
         font-size: 24px;
-        color: #fff;
+        color: #000;
     }
     .toggle {
         display: block;
@@ -485,5 +485,97 @@ footer a {
     }
     .rows {
         display: block;
+    }
+    .home_content h1 {
+        font-size: 32px;
+        margin-left: 20px;
+    }
+    .home_content p {
+        width: auto;
+        font-size: 18px;
+        margin: 10px;
+        padding: 20px 10px;
+    }
+    .home_content {
+        position: absolute;
+        top: 5%;
+        left: 0;
+    }
+    #home {
+        height: 50vh;
+    }
+    .about-bg {
+        padding: 20px;
+    }
+    .about-image img {
+        width: 300px;
+        height: 250px;
+        margin: 10px 0;
+    }
+    #about {
+        height: 115vh;
+    }
+    .service_page {
+        height: 170vh;
+        background-color: #19302E;
+    }
+    .card {
+        width: auto;
+        padding: 5px;
+    }
+    .services-card {
+        grid-template-columns: 1fr;
+    }
+    .title p {
+        padding: 10px;
+        font-size: 18px;
+    }
+    .contact_form form input {
+        width: 330px;
+    }
+    .contact_form form textarea {
+        width: 330px;
+    }
+    .main-footer {
+        padding: 20px;
+        height: auto;
+        display: block;
+    }
+    footer {
+        font-size: 14px;
+    }
+    .mission-bg {
+        padding: 22px;
+    }
+    #mission {
+        height: 150vh;
+    }
+    .mission-content {
+        width: 320px;
+    }
+    .mission-image img {
+        height: 230px;
+    }
+    .work-1 {
+        display: block;
+    }
+    .img-work-1 img,
+    .img-work-2 img {
+        height: 300px;
+        width: 360px;
+        padding: 30px;
+        margin: 0px;
+    }
+    .text-work-1 h1,
+    .text-work-2 h1 {
+        margin: 0 30px;
+        font-size: 28px;
+    }
+    .text-work-1 p,
+    .text-work-2 p {
+        margin: 25px 30px;
+    }
+    .work-2 {
+        flex-direction: column-reverse;
     }
 }

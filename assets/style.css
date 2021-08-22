@@ -12,11 +12,14 @@ body {
     font-family: 'DM Sans', sans-serif;
 }
 
-#home,
+#home {
+    height: 90vh;
+}
+
 #about,
 #mission,
 #contact {
-    height: 90vh;
+    min-height: 90vh;
 }
 
 a {
@@ -53,6 +56,12 @@ a {
     background-color: #19302E;
 }
 
+.rows {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
 
 /* NavBar */
 
@@ -60,7 +69,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 20px;
+    /* padding: 20px 20px; */
     color: #ffffff;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0.8, 30%);
 }
@@ -75,7 +84,16 @@ a {
 }
 
 .nav-brand {
+    display: flex;
     color: #000000;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 14px;
+}
+
+.nav-brand img {
+    height: 90px;
+    margin: 0 30px;
 }
 
 .toggle {
@@ -101,8 +119,8 @@ a {
 
 .home_content h1 {
     color: #19302E;
-    font-family: Facultad;
-    font-size: 48px;
+    font-family: "Facultad";
+    font-size: 42px;
     margin-left: 30px;
     line-height: 70px;
     text-align: left;
@@ -121,10 +139,10 @@ a {
 }
 
 .home-btn a {
-    padding: 10px 20px;
+    padding: 10px 30px;
     background-color: #19302E;
     color: #6EB981;
-    margin-left: 22px;
+    margin-left: 20px;
     border-radius: 50px;
 }
 
@@ -137,19 +155,14 @@ a {
 
 .about-content {
     margin-top: 5%;
-}
-
-.rows {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin-right: 10px;
 }
 
 .about-content h1 {
     color: #19302E;
     font-family: Facultad;
     font-weight: 600;
-    font-size: 34px;
+    font-size: 32px;
     margin: 10px 0;
 }
 
@@ -327,16 +340,18 @@ a {
 
 .how-work {
     padding: 40px 20px;
+    background-color: #19302E;
     text-align: center;
 }
 
 .how-work h1 {
-    color: #19302E;
+    color: #f1f1f1;
     font-size: 32px;
 }
 
 .how-work p {
-    font-size: 18px;
+    font-size: 22px;
+    color: #6EB981;
 }
 
 .work-1 {
@@ -448,23 +463,27 @@ footer a {
         top: -100%;
         left: 0;
         width: 100%;
-        height: calc(120vh- 80px);
-        padding: 50px 100px;
+        height: calc(100vh- 80px);
+        padding: 20px;
         text-align: center;
         overflow: auto;
         background-color: #fff;
         flex-direction: column;
         z-index: 10;
     }
-    .nav-brand {
+    .nav-brand h2 {
         color: #000;
+        font-size: 18px;
     }
     #header {
         background-color: #fff;
     }
     #header.active1 ul {
         opacity: 1;
-        top: 80px;
+        top: 60px;
+    }
+    #header ul li {
+        margin: 5px 0;
     }
     #header ul li a {
         margin: 5px 0;
@@ -476,12 +495,20 @@ footer a {
         position: relative;
         width: 25px;
         height: 25px;
-        background-image: url(../images/icons8-menu-48.png);
+        background-image: url(./images/menu.png);
         cursor: pointer;
+        transition: 0.40ms ease-in;
     }
     #header.active1 .toggle {
-        background-image: url(../images/icons8-delete-24.png);
+        background-image: url(./images/close.png);
         background-repeat: no-repeat;
+    }
+    .nav {
+        padding: 20px 5px;
+        justify-content: space-evenly;
+    }
+    .nav-brand img {
+        display: none;
     }
     .rows {
         display: block;
@@ -493,12 +520,16 @@ footer a {
     .home_content p {
         width: auto;
         font-size: 18px;
-        margin: 10px;
-        padding: 20px 10px;
+        margin: 12px;
+        padding: 20px 5px;
+        margin-top: -20px;
+    }
+    .home-btn a {
+        margin-left: 10px;
     }
     .home_content {
         position: absolute;
-        top: 5%;
+        top: 10%;
         left: 0;
     }
     #home {
@@ -510,13 +541,10 @@ footer a {
     .about-image img {
         width: 300px;
         height: 250px;
-        margin: 10px 0;
-    }
-    #about {
-        height: 115vh;
+        padding: 10px;
+        margin-left: -15px;
     }
     .service_page {
-        height: 170vh;
         background-color: #19302E;
     }
     .card {
@@ -528,7 +556,7 @@ footer a {
     }
     .title p {
         padding: 10px;
-        font-size: 18px;
+        font-size: 16px;
     }
     .contact_form form input {
         width: 330px;
@@ -547,14 +575,13 @@ footer a {
     .mission-bg {
         padding: 22px;
     }
-    #mission {
-        height: 150vh;
-    }
     .mission-content {
         width: 320px;
     }
     .mission-image img {
         height: 230px;
+        padding: 10px;
+        margin-left: -20px;
     }
     .work-1 {
         display: block;
@@ -563,8 +590,9 @@ footer a {
     .img-work-2 img {
         height: 300px;
         width: 360px;
-        padding: 30px;
+        padding: 20px;
         margin: 0px;
+        margin-left: -5px;
     }
     .text-work-1 h1,
     .text-work-2 h1 {

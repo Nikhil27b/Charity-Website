@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
 
 </head>
 
@@ -43,7 +45,7 @@
                 We’re big enough to deliver, small enough to care
             </p>
         </div>
-        <div class="work-1">
+        <div class="work-1" data-aos="fade-up">
             <div class="img-work-1">
                 <img src="https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80" alt="" />
             </div>
@@ -55,7 +57,7 @@
                 </p>
             </div>
         </div>
-        <div class="work-2">
+        <div class="work-2" data-aos="fade-up">
             <div class="text-work-2">
                 <h1>
                     Support Healthy Environment
@@ -67,7 +69,7 @@
                 <img src="https://images.unsplash.com/photo-1486218119243-13883505764c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=752&q=80" alt="" />
             </div>
         </div>
-        <div class="work-1">
+        <div class="work-1" data-aos="fade-up">
             <div class="img-work-1">
                 <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="" />
             </div>
@@ -79,7 +81,7 @@
                     We are providing help in the field of employment with the help of Corporate Industries, Small Scale Industries and Multi National Companies. </p>
             </div>
         </div>
-        <div class="work-2">
+        <div class="work-2" data-aos="fade-up">
             <div class="text-work-2">
                 <h1>
                     Emotional Hand
@@ -92,7 +94,7 @@
                 <img src="https://images.unsplash.com/photo-1509239767605-0703ef611f08?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="" />
             </div>
         </div>
-        <div class="work-1">
+        <div class="work-1" data-aos="fade-up">
             <div class="img-work-1">
                 <img src="https://images.unsplash.com/photo-1597235506549-5392d2b7559a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="" />
             </div>
@@ -113,23 +115,23 @@
 
     <section id="footer">
         <div class="main-footer">
-            <div class="logoinfo">
+            <div class="logoinfo" data-aos="fade-up">
                 <h2>United One Roof Foundation</h2>
             </div>
-            <div class="com">
+            <div class="com " data-aos="fade-up">
                 <h1>About</h1>
                 <ul>
-                    <li>About</li>
-                    <li>Mission</li>
-                    <li>Service</li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./mission.html">Mission</a></li>
+                    <li><a href="./service.html"> Service</a></li>
                 </ul>
             </div>
-            <div class="info">
+            <div class="info " data-aos="fade-up">
                 <h1>Infomation</h1>
                 <ul>
-                    <li>Blogs</li>
-                    <li>Gallary</li>
-                    <li>Contact</li>
+                    <li><a href="">Blogs</a></li>
+                    <li><a href="">Gallary</a></li>
+                    <li><a href="">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -138,6 +140,23 @@
     <footer>
         © 2021 All Rights Reserved United One Roof Foundation | Website Developed By - Nikhil27
     </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js "></script>
+    <script>
+        AOS.init({
+
+            debounceDelay: 50,
+            throttleDelay: 99,
+            offset: 120,
+            delay: 0,
+            duration: 1000,
+            easing: 'ease',
+            once: false,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+
+        });
+    </script>
     <script src="./assets/main.js"></script>
 
 </body>

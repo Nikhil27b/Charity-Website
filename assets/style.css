@@ -436,7 +436,7 @@ a {
     font-weight: 500;
 }
 
-.main-footer ul li {
+.main-footer ul li a {
     color: #ffffffcc;
 }
 
@@ -473,7 +473,7 @@ footer a {
     }
     .nav-brand h2 {
         color: #000;
-        font-size: 18px;
+        font-size: 20px;
     }
     #header {
         background-color: #fff;
@@ -504,7 +504,7 @@ footer a {
         background-repeat: no-repeat;
     }
     .nav {
-        padding: 20px 5px;
+        padding: 20px 0;
         justify-content: space-evenly;
     }
     .nav-brand img {
@@ -589,10 +589,9 @@ footer a {
     .img-work-1 img,
     .img-work-2 img {
         height: 300px;
-        width: 360px;
+        width: 350px;
         padding: 20px;
         margin: 0px;
-        margin-left: -5px;
     }
     .text-work-1 h1,
     .text-work-2 h1 {

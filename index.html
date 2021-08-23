@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
 
 </head>
 
@@ -38,11 +41,11 @@
     <!------- Home Started -------->
     <section id="home">
         <div class="home_page">
-            <div class="home_content">
+            <div class="home_content" data-aos="fade-up">
                 <h1>Serving To Humanity</h1>
                 <p>“It is privilege to serve Mankind for this is the worship of God, God is here in all these human souls” Swami Vivekanand</p>
-                <div class="home-btn">
-                    <a href="#">CONTACT</a>
+                <div class="home-btn ">
+                    <a href="# ">CONTACT</a>
                 </div>
             </div>
         </div>
@@ -50,9 +53,9 @@
 
 
     <!------- About Started -------->
-    <section id="about">
-        <div class="about-bg">
-            <div class="rows">
+    <section id="about ">
+        <div class="about-bg ">
+            <div class="rows" data-aos="fade-up">
                 <div class="about-content">
                     <h1>About Us</h1>
                     <p>This foundation was established by Dr. Alka Mohan Kadam with her all dear students on 27 th June 2021 at 11.30 am at Sambhaji Maidan,Vikhroli (east) Mumbai 400083.
@@ -104,18 +107,18 @@
 
     <!------- Service Started -------->
     <section id="service">
-        <div class="service_page">
-            <div class="service-content">
+        <div class="service_page ">
+            <div class="service-content" data-aos="fade-up">
                 <h3>Our Services</h3>
                 <h1>We’re big enough to deliver, small <br> enough to care.</h1>
-                <!-- <div class="services-card">
-                    <div class="card">
+                <!-- <div class="services-card ">
+                    <div class="card ">
                         <h2>
                             Educational Care
                         </h2>
                         <p>Our aim is to provide such educational care, by which character is formed, health of mind increased, the intelligence is expanded, with the help of this one can stand on one’s feet.</p>
                     </div>
-                    <div class="card">
+                    <div class="card ">
                         <h2>
                             Support Healthy Environment
                         </h2>
@@ -123,21 +126,21 @@
 
                         </p>
                     </div>
-                    <div class="card">
+                    <div class="card ">
                         <h2>
                             Employment Opportunities </h2>
                         <p>We are providing help in the field of employment with the help of Corporate Industries, Small Scale Industries and Multi National Companies.
                         </p>
                     </div>
-                    <div class="card">
+                    <div class="card ">
                         <h2>
                             Emotional Hand </h2>
                         <p>An emotional self care helps you to build a strong future. Science has proven that the state of our mind has an immense effect on our health and well being.
                         </p>
                     </div>
                 </div>
-                <div class="see-more">
-                    <a href="">See More</a>
+                <div class="see-more ">
+                    <a href=" ">See More</a>
                 </div> -->
             </div>
         </div>
@@ -145,8 +148,8 @@
 
 
     <!----------Contact form --------->
-    <section id="contact">
-        <div class="contact_form">
+    <section id="contact ">
+        <div class="contact_form" data-aos="fade-up">
             <div class="title">
                 <h1>Let's Connect With Us
                 </h1>
@@ -165,23 +168,23 @@
 
     <section id="footer">
         <div class="main-footer">
-            <div class="logoinfo">
+            <div class="logoinfo" data-aos="fade-up">
                 <h2>United One Roof Foundation</h2>
             </div>
-            <div class="com">
+            <div class="com " data-aos="fade-up">
                 <h1>About</h1>
                 <ul>
-                    <li>About</li>
-                    <li>Mission</li>
-                    <li>Service</li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./mission.html">Mission</a></li>
+                    <li><a href="./service.html"> Service</a></li>
                 </ul>
             </div>
-            <div class="info">
+            <div class="info " data-aos="fade-up">
                 <h1>Infomation</h1>
                 <ul>
-                    <li>Blogs</li>
-                    <li>Gallary</li>
-                    <li>Contact</li>
+                    <li><a href="">Blogs</a></li>
+                    <li><a href="">Gallary</a></li>
+                    <li><a href="">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -193,7 +196,25 @@
 
 
 
-    <script src="./assets/main.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js "></script>
+    <script>
+        AOS.init({
+
+            debounceDelay: 50,
+            throttleDelay: 99,
+            offset: 120,
+            delay: 0,
+            duration: 1000,
+            easing: 'ease',
+            once: false,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+
+        });
+    </script>
+
+    <script src="./assets/main.js "></script>
+
 </body>
 
 </html>

@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
 
 </head>
 
@@ -44,7 +46,7 @@
             </p>
         </div>
         <div class="about-bg">
-            <div class="rows">
+            <div class="rows" data-aos="fade-up">
                 <div class="about-content">
                     <h1>About</h1>
                     <p>This foundation was established by Dr. Alka Mohan Kadam with her all dear students on 27 th June 2021 at 11.30 am at Sambhaji Maidan,Vikhroli (east) Mumbai 400083.
@@ -63,31 +65,48 @@
 
     <section id="footer">
         <div class="main-footer">
-            <div class="logoinfo">
+            <div class="logoinfo" data-aos="fade-up">
                 <h2>United One Roof Foundation</h2>
             </div>
-            <div class="com">
+            <div class="com " data-aos="fade-up">
                 <h1>About</h1>
                 <ul>
-                    <li>About</li>
-                    <li>Mission</li>
-                    <li>Service</li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./mission.html">Mission</a></li>
+                    <li><a href="./service.html"> Service</a></li>
                 </ul>
             </div>
-            <div class="info">
+            <div class="info " data-aos="fade-up">
                 <h1>Infomation</h1>
                 <ul>
-                    <li>Blogs</li>
-                    <li>Gallary</li>
-                    <li>Contact</li>
+                    <li><a href="">Blogs</a></li>
+                    <li><a href="">Gallary</a></li>
+                    <li><a href="">Contact</a></li>
                 </ul>
             </div>
         </div>
     </section>
-
     <footer>
         © 2021 All Rights Reserved United One Roof Foundation | Website Developed By - Nikhil27
     </footer>
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js "></script>
+    <script>
+        AOS.init({
+
+            debounceDelay: 50,
+            throttleDelay: 99,
+            offset: 120,
+            delay: 0,
+            duration: 1000,
+            easing: 'ease',
+            once: false,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+
+        });
+    </script>
     <script src="./assets/main.js"></script>
 
 </body>

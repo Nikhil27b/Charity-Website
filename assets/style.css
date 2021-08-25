@@ -17,8 +17,7 @@ body {
 }
 
 #about,
-#mission,
-#contact {
+#mission {
     min-height: 90vh;
 }
 
@@ -284,8 +283,8 @@ a {
 /*todo Contact Started*/
 
 .title {
+    padding-top: 40px;
     text-align: center;
-    margin-top: 70px;
     font-size: 22px;
     color: #19302E;
     margin-bottom: 20px;
@@ -300,6 +299,13 @@ a {
     font-size: 20px;
 }
 
+.contact_form {
+    background-image: url("./images/contactbg.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 120vh;
+}
+
 .contact_form form {
     display: flex;
     align-items: center;
@@ -309,19 +315,28 @@ a {
 
 .contact_form form input {
     outline: 0;
-    background: #f2f2f2;
     width: 600px;
-    border-radius: 4px;
+    background-color: transparent;
     border: 0;
+    border-bottom: 1px solid #111111;
     margin: 15px 0;
-    padding: 15px;
+    padding: 20px 0;
     font-size: 14px;
 }
 
 .contact_form form textarea {
-    background-color: #f2f2f2;
+    background-color: transparent;
+    width: 600px;
+    border: 0;
+    border-bottom: 1px solid #111111;
+    margin: 15px 0;
+    padding: 20px 0;
+}
+
+.contact_form textarea:focus {
+    outline: none !important;
     border: none;
-    padding: 20px 10px;
+    border-bottom: 1px solid #111111;
 }
 
 .contact_form input[type="button"] {
@@ -329,6 +344,9 @@ a {
     background-color: #111111;
     color: #ffffff;
     font-size: 16px;
+    height: 50px;
+    line-height: 1px;
+    border-radius: 2px;
 }
 
 
@@ -452,6 +470,30 @@ footer {
 footer a {
     text-decoration: none;
     color: #ffffff;
+}
+
+.logoinfo p {
+    color: #6EB981;
+    font-size: 17px;
+    margin-top: 5px;
+}
+
+.contact-details {
+    margin-top: 20px;
+}
+
+.contact-details li {
+    list-style: none;
+    margin: 10px 0;
+}
+
+.contact-details li a {
+    color: #f1f1f1;
+}
+
+.contact-details .fa {
+    color: #f1f1f1;
+    margin-right: 10px;
 }
 
 
@@ -604,5 +646,15 @@ footer a {
     }
     .work-2 {
         flex-direction: column-reverse;
+    }
+    .contact_form {
+        background-image: url(./images/contactbg.jpg);
+        background-size: cover;
+        width: 100%;
+        height: 100vh;
+        background-position: bottom;
+    }
+    .title {
+        font-size: 19px;
     }
 }

@@ -499,6 +499,8 @@ footer a {
 
 /*todo Mobile Responsive   */
 
+
+
 @media only screen and (max-width: 749px) {
     #header ul {
         position: absolute;
@@ -560,11 +562,11 @@ footer a {
         margin-left: 20px;
     }
     .home_content p {
-        width: auto;
+        width: 100%;
         font-size: 18px;
-        margin: 12px;
+        margin: 8px;
         padding: 20px 5px;
-        margin-top: -20px;
+        margin-top: -10px;
     }
     .home-btn a {
         margin-left: 10px;
@@ -658,3 +660,50 @@ footer a {
         font-size: 19px;
     }
 }
+
+/* For Galaxy Fold */
+
+@media (max-width: 320px) {
+    #home {
+        height: 60vh;
+    }
+    .nav-brand h2 {
+        color: #000;
+        font-size: 18px;
+    }
+    .about-image img{
+        width: 100%;
+    }
+    .service_page{
+        height: 50vh;
+    }
+    .contact_form form input,
+    .contact_form form textarea{
+        width: 240px;
+    }
+    footer{
+        padding: 15px;
+        font-size: 16px;
+    }
+    .mission-image img{
+        width: 100%;
+    }
+    .mission-content{
+        width: 100%;
+    }
+    .img-work-1 img, .img-work-2 img{
+        width: 100%;
+    }
+    .text-work-1 h1, .text-work-2 h1{
+        font-size: 25px;
+    }
+    .home_content h1{
+        font-size: 28px;
+    }
+    .nav{
+        padding: 20px 10px;
+        box-shadow: 0 0 5px 0 rgb(0 0 1 / 10%);
+
+    }
+}
+

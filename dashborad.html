@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sakhe Sarathi Charitable Trust - Dashboard</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="description" content="We are working through online path, here we are sharing online links. As per issues and problems we can also serve at community level. Our service is not limited in one sector we provide all kind of service in social,
+    economic, financial, educational, emotional cultural and environmental issues.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .main-content {
+            display: none;
+        }
+
+        body {
+            background-image: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Login Form -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-form">
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <button class="login-btn" onclick="login()">Login</button>
+        </div>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        <header id="header">
+            <div class="nav">
+                <div class="nav-brand">
+                    <img src="./assets/images/logo.jpg" alt="logo" srcset="">
+                    <h2>Sakhe Sarathi Charitable Trust</h2>
+                </div>
+                <div class="nav-item">
+                    <ul>
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./about.html">About us</a></li>
+                        <li><a href="./mission.html">Mission</a></li>
+                        <li><a href="./service.html">Service</a></li>
+                        <li><a href="./certificate.html">Certificate</a></li>
+                        <li><a href="./index.html#contact" class="contact-btn">Contact</a></li>
+                    </ul>
+                    <div class="toggle" onclick="toggle()"></div>
+                </div>
+            </div>
+        </header>
+
+        <section class="announcement">
+            <div class="container-fluid">
+                <h2>Announcement</h2>
+
+                <div class="announcement-container" id="announcementList">
+                </div>
+
+                <button class="add-btn" onclick="openModal()">Add Announcement</button>
+
+            </div>
+            <!-- Add Announcement Modal -->
+            <div class="modal" id="announcementModal">
+                <div class="modal-content">
+                    <h2>Add New Announcement</h2>
+                    <form id="announcementForm">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" id="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Content</label>
+                            <textarea id="content" rows="4" required></textarea>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="button" class="cancel-btn" onclick="closeModal()">Cancel</button>
+                            <button type="submit" class="submit-btn">Add Announcement</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="video-gallery">
+            <div class="container-fluid">
+                <h2>Video Gallery</h2>
+                <div class="video-container" id="videoList"></div>
+                <button class="add-btn" onclick="openVideoModal()">Add Video</button>
+            </div>
+
+            <!-- Add Video Modal -->
+            <div class="modal" id="videoModal">
+                <div class="modal-content">
+                    <h2>Add New Video</h2>
+                    <form id="videoForm">
+                        <div class="form-group">
+                            <label for="videoUrl">YouTube Embed Link</label>
+                            <input type="url" id="videoUrl" placeholder="Enter YouTube embed link" required>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="button" class="cancel-btn" onclick="closeVideoModal()">Cancel</button>
+                            <button type="submit" class="submit-btn">Add Video</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+  
+        <footer>
+            © 2021-2025 All Rights Reserved Sakhe Sarathi Charitable Trust | Website Developed By - Nikhil27 & VGB
+            DEVELOPERS
+        </footer>
+    </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCkYqsnBHYhHSmVMS4tilS8Wr72aHHayN4",
+            authDomain: "sakhe-sarthi-web.firebaseapp.com",
+            projectId: "sakhe-sarthi-web",
+            storageBucket: "sakhe-sarthi-web.firebasestorage.app",
+            messagingSenderId: "781346841728",
+            appId: "1:781346841728:web:3e9776cb75451cb2c63265",
+            measurementId: "G-EBX9R0KL37"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === 'admin123') {
+                document.getElementById('loginContainer').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+                sessionStorage.setItem('isLoggedIn', 'true');
+                loadAnnouncements(); // Load announcements after successful login
+            } else {
+                alert('Invalid credentials. Please try again.');
+            }
+        }
+
+        window.addEventListener('load', function () {
+            if (sessionStorage.getItem('isLoggedIn') === 'true') {
+                document.getElementById('loginContainer').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+                loadAnnouncements();
+            }
+        });
+
+        function loadAnnouncements() {
+            const announcementList = document.getElementById('announcementList');
+            announcementList.innerHTML = '';
+
+            db.collection('Announcement')
+                .orderBy('timestamp', 'desc')
+                .limit(10)
+                .get()
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        const data = doc.data();
+                        const date = data.timestamp ? new Date(data.timestamp.toDate()) : new Date();
+
+                        const announcementCard = `
+                <div class="announcement-card">
+                    <div class="announcement-title">${data.title}</div>
+                    <div class="announcement-content">${data.content}</div>
+                    <div class="announcement-date">${date.toLocaleDateString()}</div>
+                    <button class="delete-btn" onclick="deleteAnnouncement('${doc.id}')">Delete</button>
+                </div>
+                `;
+                        announcementList.innerHTML += announcementCard;
+                    });
+                })
+                .catch((error) => {
+                    console.error("Error loading announcements: ", error);
+                });
+        }
+
+        function deleteAnnouncement(docId) {
+            if (confirm("Are you sure you want to delete this announcement?")) {
+                db.collection('Announcement').doc(docId).delete()
+                    .then(() => {
+                        alert("Announcement deleted successfully.");
+                        loadAnnouncements(); // Reload the list after deletion
+                    })
+                    .catch((error) => {
+                        console.error("Error deleting announcement: ", error);
+                        alert('Error deleting announcement. Please try again.');
+                    });
+            }
+        }
+        // Modal functions
+        function openModal() {
+            document.getElementById('announcementModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('announcementModal').style.display = 'none';
+            document.getElementById('announcementForm').reset();
+        }
+
+        // Make functions globally available
+        window.login = login;
+        window.openModal = openModal;
+        window.closeModal = closeModal;
+
+        // Form submission
+        document.getElementById('announcementForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('content').value;
+
+            db.collection('Announcement').add({
+                title: title,
+                content: content,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            })
+                .then(() => {
+                    closeModal();
+                    loadAnnouncements();
+                })
+                .catch((error) => {
+                    console.error("Error adding announcement: ", error);
+                    alert('Error adding announcement. Please try again.');
+                });
+        });
+
+        function loadVideos() {
+  const videoList = document.getElementById('videoList');
+  videoList.innerHTML = '<div class="loading">Loading videos...</div>'; // Display loading indicator
+
+  db.collection('Videos')
+    .orderBy('timestamp', 'desc')
+    .limit(10)
+    .onSnapshot((querySnapshot) => { // Use onSnapshot for real-time updates
+      if (querySnapshot.empty) {
+        videoList.innerHTML = '<p>No videos available. Add a new one!</p>';
+      } else {
+        videoList.innerHTML = ''; // Clear loading indicator and previous videos
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+
+          // Validate video URL (ensure it's an embed link)
+          if (!data.videoUrl.includes('youtube.com/embed/')) {
+            console.error(`Invalid video URL: ${data.videoUrl}`);
+            return;
+          }
+
+          const videoCard = `
+            <div class="video-card">
+              <iframe 
+                src="${data.videoUrl}" 
+                frameborder="0" 
+                allowfullscreen 
+                class="video-frame"
+              ></iframe>
+              <button class="delete-btns" onclick="deleteVideo('${doc.id}')">Delete</button>
+            </div>
+          `;
+          videoList.innerHTML += videoCard;
+        });
+      }
+    }, (error) => {
+      console.error("Error loading videos: ", error);
+      videoList.innerHTML = '<p>Error loading videos. Please try again later.</p>';
+    });
+}
+        // Open and close video modal
+        function openVideoModal() {
+            document.getElementById('videoModal').style.display = 'flex';
+        }
+
+        function closeVideoModal() {
+            document.getElementById('videoModal').style.display = 'none';
+            document.getElementById('videoForm').reset();
+        }
+
+        // Add video
+        document.getElementById('videoForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const videoUrl = document.getElementById('videoUrl').value.trim();
+
+            // Validate if it's a valid YouTube embed link
+            if (!videoUrl.includes('youtube.com/embed/')) {
+                alert('Please enter a valid YouTube embed link (e.g., https://www.youtube.com/embed/...).');
+                return;
+            }
+
+            // Save video details to Firestore
+            db.collection('Videos')
+                .add({
+                    videoUrl: videoUrl,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                })
+                .then(() => {
+                    closeVideoModal();
+                })
+                .catch((error) => {
+                    console.error("Error saving video: ", error);
+                    alert('Error saving video. Please try again.');
+                });
+        });
+
+        // Delete video
+        function deleteVideo(docId) {
+            if (confirm("Are you sure you want to delete this video?")) {
+                db.collection('Videos')
+                    .doc(docId)
+                    .delete()
+                    .then(() => {
+                        alert("Video deleted successfully.");
+                        loadVideos(); // Reload the video gallery
+                    })
+                    .catch((error) => {
+                        console.error("Error deleting video: ", error);
+                        alert('Error deleting video. Please try again.');
+                    });
+            }
+        }
+        loadVideos(); // Reload the video gallery
+
+
+
+    </script>
+    <script src="./assets/temp.js"></script>
+</body>
+
+</html>

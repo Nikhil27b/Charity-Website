@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="keywords" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="referrer" content="no-referrer">
     <meta name="description" content="We are working through online path, here we are sharing online links. As per issues and problems we can also serve at community level. Our service is not limited in one sector we provide all kind of service in social,
     economic, financial, educational, emotional cultural and environmental issues.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -122,8 +123,16 @@
             </div>
         </section>
 
+        <!-- Gallery -->
+        <h2>Image Gallery</h2>
+        <div id="gallery"></div>
 
-  
+        <h2>Upload Image</h2>
+        <input type="file" id="imageInput">
+        <button onclick="uploadImage()">Upload</button>
+
+
+
         <footer>
             © 2021-2025 All Rights Reserved Sakhe Sarathi Charitable Trust | Website Developed By - Nikhil27 & VGB
             DEVELOPERS
@@ -252,27 +261,27 @@
         });
 
         function loadVideos() {
-  const videoList = document.getElementById('videoList');
-  videoList.innerHTML = '<div class="loading">Loading videos...</div>'; // Display loading indicator
+            const videoList = document.getElementById('videoList');
+            videoList.innerHTML = '<div class="loading">Loading videos...</div>'; // Display loading indicator
 
-  db.collection('Videos')
-    .orderBy('timestamp', 'desc')
-    .limit(10)
-    .onSnapshot((querySnapshot) => { // Use onSnapshot for real-time updates
-      if (querySnapshot.empty) {
-        videoList.innerHTML = '<p>No videos available. Add a new one!</p>';
-      } else {
-        videoList.innerHTML = ''; // Clear loading indicator and previous videos
-        querySnapshot.forEach((doc) => {
-          const data = doc.data();
+            db.collection('Videos')
+                .orderBy('timestamp', 'desc')
+                .limit(10)
+                .onSnapshot((querySnapshot) => { // Use onSnapshot for real-time updates
+                    if (querySnapshot.empty) {
+                        videoList.innerHTML = '<p>No videos available. Add a new one!</p>';
+                    } else {
+                        videoList.innerHTML = ''; // Clear loading indicator and previous videos
+                        querySnapshot.forEach((doc) => {
+                            const data = doc.data();
 
-          // Validate video URL (ensure it's an embed link)
-          if (!data.videoUrl.includes('youtube.com/embed/')) {
-            console.error(`Invalid video URL: ${data.videoUrl}`);
-            return;
-          }
+                            // Validate video URL (ensure it's an embed link)
+                            if (!data.videoUrl.includes('youtube.com/embed/')) {
+                                console.error(`Invalid video URL: ${data.videoUrl}`);
+                                return;
+                            }
 
-          const videoCard = `
+                            const videoCard = `
             <div class="video-card">
               <iframe 
                 src="${data.videoUrl}" 
@@ -283,14 +292,14 @@
               <button class="delete-btns" onclick="deleteVideo('${doc.id}')">Delete</button>
             </div>
           `;
-          videoList.innerHTML += videoCard;
-        });
-      }
-    }, (error) => {
-      console.error("Error loading videos: ", error);
-      videoList.innerHTML = '<p>Error loading videos. Please try again later.</p>';
-    });
-}
+                            videoList.innerHTML += videoCard;
+                        });
+                    }
+                }, (error) => {
+                    console.error("Error loading videos: ", error);
+                    videoList.innerHTML = '<p>Error loading videos. Please try again later.</p>';
+                });
+        }
         // Open and close video modal
         function openVideoModal() {
             document.getElementById('videoModal').style.display = 'flex';
@@ -346,6 +355,106 @@
         }
         loadVideos(); // Reload the video gallery
 
+
+
+    </script>
+
+    <script>
+        const IMGUR_CLIENT_ID = "7060c3aff0706dd";
+
+        document.addEventListener("DOMContentLoaded", loadGallery);
+
+        function uploadImage() {
+            const fileInput = document.getElementById("imageInput");
+            const file = fileInput.files[0];
+
+            if (!file) {
+                alert("Please select an image.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("image", file);
+
+            fetch("https://api.imgur.com/3/upload", {
+                method: "POST",
+                headers: {
+                    Authorization: `Client-ID ${IMGUR_CLIENT_ID}`,
+                },
+                body: formData,
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Imgur Response:", data);
+                    if (data.success) {
+                        const imageUrl = data.data.link;
+                        saveImageUrl(imageUrl);
+                    } else {
+                        alert("Upload failed!");
+                    }
+                })
+                .catch(error => console.error("Error uploading image:", error));
+        }
+
+        function saveImageUrl(url) {
+            db.collection("Gallery").add({
+                imageUrl: url,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            })
+                .then(() => {
+                    console.log("Image URL saved to Firestore!");
+                    loadGallery(); // Reload gallery
+                })
+                .catch(error => {
+                    console.error("Error saving image:", error);
+                });
+        }
+
+        function loadGallery() {
+            const galleryDiv = document.getElementById("gallery");
+            galleryDiv.innerHTML = "";
+
+            db.collection("Gallery")
+                .orderBy("timestamp", "desc")
+                .get()
+                .then(snapshot => {
+                    snapshot.forEach(doc => {
+                        const data = doc.data();
+                        const imageCard = document.createElement("div");
+                        imageCard.classList.add("gallery-item");
+
+                        const img = document.createElement("img");
+                        img.src = data.imageUrl;
+
+                        const deleteBtn = document.createElement("button");
+                        deleteBtn.textContent = "X";
+                        deleteBtn.classList.add("delete-btn");
+                        deleteBtn.onclick = () => deleteImage(doc.id); // Pass Firestore doc ID
+
+                        imageCard.appendChild(img);
+                        imageCard.appendChild(deleteBtn);
+                        galleryDiv.appendChild(imageCard);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error loading images:", error);
+                });
+        }
+
+        function deleteImage(docId) {
+            if (confirm("Are you sure you want to delete this image?")) {
+                db.collection("Gallery").doc(docId).delete()
+                    .then(() => {
+                        console.log("Image deleted from Firestore.");
+                        loadGallery(); // Reload after deletion
+                    })
+                    .catch(error => {
+                        console.error("Error deleting image:", error);
+                    });
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", loadGallery);
 
 
     </script>
